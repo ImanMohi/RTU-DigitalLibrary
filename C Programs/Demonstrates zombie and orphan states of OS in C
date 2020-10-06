@@ -1,0 +1,261 @@
+#include <sys/types.h>
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/wait.h>
+
+void mergeSort(int [], int, int, int);//function to merge sort
+void partition(int [],int, int);//function for dividing array into sub-parts using merge sort
+void quicksort (int [], int, int);//function for quick sort
+
+int main()
+{
+	char *message;
+	pid_t pid;
+	int exit_code;
+
+	int list[50];//array of size 50 elements
+        int i, size,ch;
+
+	printf("Enter total number of elements:");
+        scanf("%d", &size);//taking total no. of input from users
+	printf("Enter the elements:\n");
+        for(i = 0; i < size; i++)
+	{
+	         scanf("%d", &list[i]);//taking input from users
+ 	}
+	
+	printf("\n\tEnter your choice:\n1)Zombie\n2)Orphan\n");
+	scanf("%d",&ch);//taking choice from orphan or zombie state
+
+if(ch==1)//-----------ZOMBIE PROCESS-------------	
+{
+	printf("Fork program starting\n");
+	printf("--------------------------------------------");
+	pid=fork();//calling fork sysytem call
+
+	switch(pid)
+	{
+		case -1:
+			perror("fork failed");//fork failed case
+			exit(1);
+		case 0:		
+			printf("\nChild process sorting...\n");
+			printf("Child:My ID is- %d\n",getpid());//getpid() function is used to print child process ID
+			printf("Child:My Parent ID is- %d\n",getppid());//getppid() function is used to print parent process ID
+						
+			partition(list, 0, size - 1);//function call for merge sort
+			printf("\nAfter sorting by child process array elements are:\n");
+    			for(i = 0;i < size; i++)
+			{
+        		  printf("%d   ",list[i]);//printing sorted array by merge sort algorithm
+    			}
+			printf("\n-----Child is sleeping now-----");
+			printf("\n\n");
+							
+		break;
+		
+		default:
+			message="\nThis is the parent";
+			puts(message);//to display the message
+			system("wait");
+			sleep(10);
+			printf("\nParent process Sorting...\n");
+			
+			printf("Parent:Child ID is: %d\n",pid);//getpid() function is used to print child process ID
+				
+			 quicksort(list, 0, size - 1);//function call for quick sort
+			printf("After sorting by parent process array elements are:\n");
+    			for(i = 0;i < size; i++)
+			{
+        		  printf("%d   ",list[i]);////printing sorted array by quick sort algorithm
+    			}
+				printf("\n\n------Parent process is leaving now.....\n");
+			printf("\n\n");
+			system("ps -elf|grep book.out");//to print the zombie process within a program that is,to execute the command within the program
+	
+		break;
+	}
+}
+else if(ch==2)//-----------ORPHAN  PROCESS----------	
+{
+	printf("Fork program starting\n");
+	printf("--------------------------------------------");
+	pid=fork();//calling fork sysytem call
+
+	switch(pid)
+	{
+		case -1:
+			perror("fork failed");//fork failed case
+			exit(1);
+		case 0:	
+			sleep(10);	
+			printf("Child process sorting...\n");
+			partition(list, 0, size - 1);//function call for merge sort
+			printf("Child PID is-%d\n",getpid());
+			printf("Child's new Parent ID is- %d\n",getppid());
+			printf("After sorting by child process array elements are:\n");
+    			for(i = 0;i < size; i++)
+			{
+        		  printf("%d   ",list[i]);//printing sorted array by merge sort algorithm
+    			}
+			
+			printf("\n-----Child is sleeping now-----");
+			printf("\n\n");
+					
+		break;
+		
+		default:
+			sleep(1);
+			message="\nThis is the parent";
+			puts(message);//to display the message
+			printf("\nParent process Sorting...\n");
+			printf("\nParent ID is:%d",getppid());
+			printf("Parent:Child PID is: %d\n",pid);//getpid() function is used to print child process ID
+				
+			 quicksort(list, 0, size - 1);//function call for quick sort
+			printf("After sorting by parent process array elements are:\n");
+    			for(i = 0;i < size; i++)
+			{
+        		  printf("%d   ",list[i]);////printing sorted array by quick sort algorithm
+    			}
+				printf("\n\nParent process is leaving now.....\n");	
+			printf("\n\n");	
+			system("ps -elf|grep book.out");//to print the zombie process within a program that is,to execute the command within the program
+				
+	break;
+	}
+}
+else
+	exit(0);
+}
+
+
+void partition(int list[],int low,int high)//Function to divide the array into sub-parts
+
+{
+
+    int mid;
+    if(low < high)
+
+    {
+
+        mid = (low + high) / 2;
+        partition(list, low, mid);
+        partition(list, mid + 1, high);
+        mergeSort(list, low, mid, high);
+
+    }
+
+}
+
+void mergeSort(int list[],int low,int mid,int high)//function to sort the sub-array and merge in sorted order
+{
+
+    int i, mi, k, lo, temp[50];
+    lo = low;
+    i = low;
+    mi = mid + 1;
+    while ((lo <= mid) && (mi <= high))
+    {
+        if (list[lo] <= list[mi])
+        {
+            temp[i] = list[lo];
+            lo++;
+        }
+        else
+        {
+            temp[i] = list[mi];
+            mi++;
+        }
+        i++;
+    }
+    if (lo > mid)
+    {
+        for (k = mi; k <= high; k++)
+        {
+            temp[i] = list[k];
+            i++;
+        }
+    }
+    else
+    {
+        for (k = lo; k <= mid; k++)
+        {
+             temp[i] = list[k];
+             i++;
+        }
+    }
+    for (k = low; k <= high; k++)
+    {
+        list[k] = temp[k];
+    }
+}
+
+void quicksort(int list[], int low, int high)//function to sort the array elements using quciksort alorithm
+
+    {
+
+        int pivot, i, j, temp;
+
+        if (low < high)
+
+        {
+
+            pivot = low;
+
+            i = low;
+
+            j = high;
+
+            while (i < j) 
+
+            {
+
+                while (list[i] <= list[pivot] && i <= high)
+
+                {
+
+                    i++;
+
+                }
+
+                while (list[j] > list[pivot] && j >= low)
+
+                {
+
+                    j--;
+
+                }
+
+                if (i < j)
+
+                {
+
+                    temp = list[i];
+
+                    list[i] = list[j];
+
+                    list[j] = temp;
+
+                }
+
+            }
+
+            temp = list[j];
+
+            list[j] = list[pivot];
+
+            list[pivot] = temp;
+
+            quicksort(list, low, j - 1);
+
+            quicksort(list, j + 1, high);
+
+        }
+
+    }
+
+
+   
+
