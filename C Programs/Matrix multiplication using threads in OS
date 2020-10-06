@@ -1,0 +1,141 @@
+//Required header files
+#include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <string.h>
+#include <pthread.h>
+void *thread_function(void *matrixData); //function to create thread
+int main()
+{
+ int i = 0, j = 0, res;
+ void *thread_result;
+ int m, n, k1, k2;
+ printf("Enter No Of Rows For Matrix 1 : \n"); //to accept total no. of rows for
+matrix 1
+ scanf("%d", &m);
+ printf("Enter No Of Column For Matrix 1 : \n");//to accept total no. of columns
+for matrix 1
+ scanf("%d", &k1);
+ printf("Enter No Of Rows For Matrix 2 : \n");//to accept total no. of rows for
+matrix 2
+ scanf("%d", &k2);
+ printf("Enter No Of Column For Matrix 2 : \n");");//to accept total no. of
+columns for matrix 2
+ scanf("%d", &n);
+ //validation
+ if (k1 != k2)
+ {
+ printf("Multiplication Is Not Possible...\n");
+ return 0;
+ }
+ int matrix1[m][k1], matrix2[k2][n];
+ printf("Enter Matrix 1 data :: \n"); //getting elements for matrix 1
+ for (int i = 0; i < m; i++)
+ {
+ for (int j = 0; j < k1; j++)
+ {
+ printf("\ndata[%d][%d] : ", i, j);
+ scanf("%d", &matrix1[i][j]);
+ }
+ }
+ printf("Enter Matrix 2 data :: \n"); //getting elements for matrix 2
+ for (int i = 0; i < k2; i++)
+ {
+ for (int j = 0; j < n; j++)
+ {
+ printf("\ndata[%d][%d] : ", i, j);
+ scanf("%d", &matrix2[i][j]);
+ }
+ }
+ int m1[3][k1];
+ pthread_t a_thread[m * n];
+ int x = 0, flag = 0, t = 0, ch;
+ m1[0][0] = m;
+ m1[0][1] = k1;
+ int mul[m][n];
+ printf("Multiplication : \n 1.Without Thread \n 2.With Thread \n 3.Exit \n choice
+: ");
+ scanf("%d",&ch);
+ switch (ch)
+ {
+ case 1: //matrix multiplication without thread
+ for (int i = 0; i < m; i++)
+ {
+ for (int j = 0; j < n; j++)
+ {
+ mul[i][j] = 0;
+ for (int k = 0; k < k1; k++)
+ {
+ mul[i][j] += matrix1[i][k] * matrix2[k][j];
+ }
+ }
+ }
+ printf("\nMultiplication : \n");
+ for (int i = 0; i < m; i++)
+ {
+ for (int j = 0; j < n; j++)
+ {
+ printf("%d\t", mul[i][j]);
+ }
+ printf("\n");
+ }
+ break;
+ case 2: //matrix multiplication with thread
+ for (i = 0; i < m; i++)
+ {
+ for (j = 0; j < n; j++)
+ {
+ for (int w = 0; w < k1; w++)
+ {
+ m1[1][w] = matrix1[x][w];
+ m1[2][w] = matrix2[w][flag];
+ }
+ flag += 1;
+ res = pthread_create(&a_thread[t], NULL, thread_function, (void
+*)&m1); //creating thread
+ sleep(5);
+ if (res == 0)
+ printf("Thread Created....\n");
+ else
+ printf("Not created....\n");
+ t += 1;
+ }
+ flag = 0;
+ x += 1;
+ }
+ t = 0;
+ printf("\nMultiplication : \n"); //doing multiplication
+ for (i = 0; i < m * n; i++)//
+ {
+ res = pthread_join(a_thread[i], &thread_result);
+ sleep(2);
+ printf("%d\t", *(int *)thread_result);
+ t += 1;
+ if (t == m)
+ printf("\n");
+ }
+ break;
+ default:
+ return 0;
+ }
+ printf("\n");
+ exit(EXIT_SUCCESS);
+}
+void *thread_function(void *matrixData)//Function to create thread
+{
+ int *rowNum;
+ rowNum = (int *)matrixData;
+ int mul, sum = 0, temp1 = 0, temp2 = 0;
+ int m1 = *(rowNum + 0 + 1);
+
+ for (int j = 0; j < m1; j++)
+ {
+ temp1 = *(rowNum + 1 * m1 + j);
+ temp2 = *(rowNum + 2 * m1 + j);
+ mul = temp1 * temp2;
+ sum += mul;
+ }
+ int *p = (int *)malloc(sizeof(int));
+ *p = sum;
+ pthread_exit(p);
+}
