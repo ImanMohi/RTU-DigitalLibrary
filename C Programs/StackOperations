@@ -1,0 +1,58 @@
+// C program to carryout stack operations
+
+#include<stdio.h>
+void push();
+void pop();
+void display();
+void exit();
+int stack[100],n,choice,top=-1,i;
+void main()
+{
+	printf("\nenter the size of stack");
+	scanf("%d",&n);
+	do
+	{
+		printf("\n1.push 2.pop 3.display 4.exit\n");
+		printf("\nenter your choice");
+		scanf("%d",&choice);
+		switch(choice)
+		{
+			case 1: push();
+			        break;
+			case 2: pop();
+			        break;
+			case 3: display();
+					break;
+			case 4: exit(0);
+					break;        
+		}
+	} while(choice!=4);
+}
+void push()
+{
+	if(top==n-1)
+	printf("\n stack is full");
+	else
+	{
+		printf("\nenter the element");
+		scanf("%d",&n);
+		top=top+1;
+		stack[top]=n;
+	}
+}
+void pop()
+{
+	if(top==-1)
+	printf("\nthe stack is empty");
+	else
+	{
+		printf("the element poped is %d\n",stack[top]);
+		top=top-1;
+	}
+}
+void display()
+{
+	printf("\n the elements in the stack are");
+	for(i=top;i>=0;i--)
+	printf("%d\t",stack[i]);
+}
