@@ -12,8 +12,8 @@ int main()
   	num=num/10;
   }
   if(temp==sum)
-  printf("The number is armstrong:");
+  printf("The number is armstrong: ");
   else
-  printf("The number is not an armstrong number:");
+  printf("The number is not an armstrong number: ");
   return 0;
 }
