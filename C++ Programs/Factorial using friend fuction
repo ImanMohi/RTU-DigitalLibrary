@@ -1,0 +1,28 @@
+//program to find factorial using friend fuction
+#include<iostream>
+using namespace std;
+
+class Number
+{
+	int x;
+	public:
+	   Number()
+	   {
+	   	cout<<"enter number :";
+	   	cin>>x;
+		   }
+		friend void factorial(Number n);   	
+};
+void factorial(Number n)
+{ int f=1,i;
+  for(i=1;i<=n.x;i++)
+  {
+  	f=f*i;
+  }
+  cout<<"Factorial is:"<<f;
+}
+int main()
+{
+	Number n;
+	factorial(n);
+}
