@@ -1,0 +1,14 @@
+// program to check character is vowel or consonant
+#include <stdio.h>
+#include <conio.h>
+int main()
+{
+	char ch;
+	printf("enter the character :\n");
+	scanf("%c",&ch);
+	if(ch=='a'||ch=='e'||ch=='E'||ch=='A'||ch=='I'||ch=='i'||ch=='O'||ch=='o'||ch=='U'||ch=='u')
+	printf("vowel");
+	else
+	printf("consonant");
+getch();
+}
