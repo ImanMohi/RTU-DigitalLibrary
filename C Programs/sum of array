@@ -1,0 +1,16 @@
+#include<stdio.h>
+int main()
+{
+	int a[4],i,sum=0;
+	printf("enter an array");
+	for(i=0;i<5;i++)
+	{
+		scanf("%d",&a[i]);
+	}
+	for(i=0;i<4;i++)
+	{
+		sum=sum+a[i];
+	}
+	printf("the sum of the array is --> %d",sum);
+	return 0;
+}
