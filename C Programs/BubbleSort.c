@@ -1,11 +1,14 @@
 // C program for implementation of Bubble sort 
 #include <stdio.h> 
+#include <conio.h>
 
   
 
 void swap(int *xp, int *yp) 
 { 
-
+int n,i,j,arr[],temp;
+  clrscr();
+  
     int temp = *xp; 
 
     *xp = *yp; 
@@ -18,21 +21,32 @@ void swap(int *xp, int *yp)
 
 void bubbleSort(int arr[], int n) 
 { 
-
-   int i, j; 
-
-   for (i = 0; i < n-1; i++)       
+  int i, j;
+printf("Enter the number of Elements\n");
+  scanf("%d",&n);
+  printf("Enter the array elements\n");
+  for (i = 0; i < n-1; i++) 
+  {
+    scanf("%d",&a[i]);
+  }
 
   
 
-       // Last i elements are already in place    
-
-       for (j = 0; j < n-i-1; j++)  
-
-           if (arr[j] > arr[j+1]) 
+       // Last i elements are already in place  
+  for (i=0; i<n-1;i++)
+  {
+    for (j = 0; j < n-i-1; j++)  
+    {
+      if (arr[j] > arr[j+1]) 
+        temp = *xp; 
+          *xp = *yp; 
+              *yp = temp; 
+    }
+  }
 
               swap(&arr[j], &arr[j+1]); 
 } 
+  
 
   
 /* Function to print an array */
@@ -41,8 +55,8 @@ void printArray(int arr[], int size)
 { 
 
     int i; 
-
-    for (i=0; i < size; i++) 
+      printf("the sorted array elements are\n");
+          for (i=0; i < size; i++) 
 
         printf("%d ", arr[i]); 
 
