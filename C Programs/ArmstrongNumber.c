@@ -1,9 +1,12 @@
  #include <stdio.h>
 int main()
 {
-  int num,sum=0,temp,rem;
+  int sum=0;
+  int num,temp,rem;
+ 
   printf("Enter the number:\n");
   scanf("%d",&num);
+ 
   temp=num;
   while(num>0)
   {
