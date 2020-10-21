@@ -6,7 +6,16 @@
 
 
 <img src="./RTU DIGITAL LIBRARY.jpg" />
-
+<!DOCTYPE html>
+<html>
+  <body>
+<head>
+  <h1>rudratalur</h1>
+  <p>Hello this is my first Hactoberfest</p>
+  </body>
+ </html>
+    
+  
 ***
 
 ### **Please read the [`contributing guidelines`](./contributing.md) before submitting new resources**
