@@ -15,4 +15,4 @@
 * Please avoid putting in programs which are already there.
 * Put your codes in correct folder.
 Coding by Namrutha [@namruthahari]
-* create projects on your own potential.
+* create projects on your own potential rather copying others.
