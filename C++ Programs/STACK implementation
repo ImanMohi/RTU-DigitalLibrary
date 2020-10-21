@@ -1,0 +1,56 @@
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+#define MXSTK 10
+
+int stack[MXSTK], top=-1;
+
+void push(){
+    int n;
+    if(top == MXSTK)
+        printf("\nOVERFLOW");
+    else{
+        printf("\nEnter element : ");
+        scanf("%d",&n);
+        top++;
+        stack[top]=n;
+    }
+}
+
+void pop(){
+    if(top == 0)
+        printf("\nUNDERFLOW");
+    else{
+        printf("\nElement POPPED : %d", stack[top]);
+        top--;
+    }
+}
+
+void peep(){
+    if(top==0)
+        printf("\nSTACK EMPTY");
+    else{
+        for(int i=top; i >= 0; i--)
+            printf("\n%d", stack[i]);
+    }
+}
+
+int main() {
+	int ch;
+	while(1) {
+	    printf("\nMENU FOR STACK");
+	    printf("\n1.PUSH\n2.POP\n3.PEEP\n4.EXIT");
+	    printf("\nENTER YOUR CHOICE : ");
+	    scanf("%d",&ch);
+	    switch(ch) {
+	        case 1: push();
+	                break;
+	        case 2: pop();
+	                break;
+	        case 3: peep();
+	                break;
+	        case 4: exit(0);
+		}
+	}
+	return 0;
+}
