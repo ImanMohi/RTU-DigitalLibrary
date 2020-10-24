@@ -1,0 +1,11 @@
+# all substring with frequencies
+
+x = "abababa"
+temp = [x[i:j] for i in range(len(x)) for j in range(i+1,len(x)+1)]
+dict = {}
+for i in temp:
+    if i not in dict.keys():
+        dict[i] = 1
+    else:
+        dict[i] +=1
+print("Extracted frequency dictionary : " + str(dict))  
