@@ -1,0 +1,69 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<limits.h>
+int comp(const void* a, const void* b) {
+ return (*(int*)a - *(int*)b);
+}
+int findGrpMedian(int arr[], int n) {
+ qsort(arr, n, sizeof(int), comp);
+ return arr[n/2];
+}
+void swap(int *a, int *b) {
+ int tmp = *b;
+ *b = *a;
+ *a = tmp;
+}
+int partition(int arr[], int l, int r, int pivot) {
+ int idx = l-1, pivot_idx = -1;
+ for (int i = l; i <= r; i++) {
+ if (arr[i] == pivot) {
+ pivot_idx = i;
+ swap(&arr[pivot_idx], &arr[r]);
+ break;}}
+ if (pivot_idx == -1) {
+ exit(0);}
+ for (int i = l; i <= r; i++) {
+ if (arr[i] < pivot) {
+ idx++;
+ swap(&arr[i], &arr[idx]);}}
+ idx++;
+ swap(&arr[idx], &arr[r]);
+ return idx;
+}
+int kthSmallest(int arr[], int l, int r, int k) {
+ if (k > 0 && k <= r - l + 1) {
+ int n = r - l + 1;
+// Dividing into 5 number group
+ int i, median[(n + 4)/5];
+ for (i = 0; i < n/5; i++) {
+ median[i] = findGrpMedian(arr+l+i*5, 5);}
+ if (n%5 != 0) {
+ median[i] = findGrpMedian(arr+l+i*5, n%5);
+ i++;
+ }
+ int mOfm = (i == 1 ? median[i-1] : kthSmallest(median, 0, i-1, i/2));
+ int idx = partition(arr, l, r, mOfm);
+ if (idx-l == k-1) {
+ return arr[idx];}
+ if (idx-l > k-1) {
+ return kthSmallest(arr, l, idx-1, k);}
+ else {
+ return kthSmallest(arr, idx+1, r, k-idx+l-1);}
+ }
+ return INT_MAX;
+}
+int main() {
+ int n;
+ printf("Enter the No. of Element:\n");
+ scanf("%d", &n);
+ printf("Enter the content of Array:\n");
+ int arr[n], k;
+ for (int i = 0; i < n; i++) {
+ scanf("%d", &arr[i]);
+ }
+ printf("Which kth-Smallest No. you want:\n");
+ scanf("%d", &k);
+ int kth_min = kthSmallest(arr, 0, n-1, k);
+ printf("The %d Smallest Element is: %d\n", k, kth_min);
+ return 0;
+}
