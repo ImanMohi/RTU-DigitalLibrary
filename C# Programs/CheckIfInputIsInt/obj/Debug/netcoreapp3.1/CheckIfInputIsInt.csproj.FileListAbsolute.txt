@@ -1,0 +1,13 @@
+C:\Users\Z510\Desktop\Hacktoberfest2020\RTU-DigitalLibrary\C# Programs\CheckIfInputIsInt\obj\Debug\netcoreapp3.1\CheckIfInputIsInt.csprojAssemblyReference.cache
+C:\Users\Z510\Desktop\Hacktoberfest2020\RTU-DigitalLibrary\C# Programs\CheckIfInputIsInt\obj\Debug\netcoreapp3.1\CheckIfInputIsInt.AssemblyInfoInputs.cache
+C:\Users\Z510\Desktop\Hacktoberfest2020\RTU-DigitalLibrary\C# Programs\CheckIfInputIsInt\obj\Debug\netcoreapp3.1\CheckIfInputIsInt.AssemblyInfo.cs
+C:\Users\Z510\Desktop\Hacktoberfest2020\RTU-DigitalLibrary\C# Programs\CheckIfInputIsInt\obj\Debug\netcoreapp3.1\CheckIfInputIsInt.csproj.CoreCompileInputs.cache
+C:\Users\Z510\Desktop\Hacktoberfest2020\RTU-DigitalLibrary\C# Programs\CheckIfInputIsInt\bin\Debug\netcoreapp3.1\CheckIfInputIsInt.exe
+C:\Users\Z510\Desktop\Hacktoberfest2020\RTU-DigitalLibrary\C# Programs\CheckIfInputIsInt\bin\Debug\netcoreapp3.1\CheckIfInputIsInt.deps.json
+C:\Users\Z510\Desktop\Hacktoberfest2020\RTU-DigitalLibrary\C# Programs\CheckIfInputIsInt\bin\Debug\netcoreapp3.1\CheckIfInputIsInt.runtimeconfig.json
+C:\Users\Z510\Desktop\Hacktoberfest2020\RTU-DigitalLibrary\C# Programs\CheckIfInputIsInt\bin\Debug\netcoreapp3.1\CheckIfInputIsInt.runtimeconfig.dev.json
+C:\Users\Z510\Desktop\Hacktoberfest2020\RTU-DigitalLibrary\C# Programs\CheckIfInputIsInt\bin\Debug\netcoreapp3.1\CheckIfInputIsInt.dll
+C:\Users\Z510\Desktop\Hacktoberfest2020\RTU-DigitalLibrary\C# Programs\CheckIfInputIsInt\bin\Debug\netcoreapp3.1\CheckIfInputIsInt.pdb
+C:\Users\Z510\Desktop\Hacktoberfest2020\RTU-DigitalLibrary\C# Programs\CheckIfInputIsInt\obj\Debug\netcoreapp3.1\CheckIfInputIsInt.dll
+C:\Users\Z510\Desktop\Hacktoberfest2020\RTU-DigitalLibrary\C# Programs\CheckIfInputIsInt\obj\Debug\netcoreapp3.1\CheckIfInputIsInt.pdb
+C:\Users\Z510\Desktop\Hacktoberfest2020\RTU-DigitalLibrary\C# Programs\CheckIfInputIsInt\obj\Debug\netcoreapp3.1\CheckIfInputIsInt.genruntimeconfig.cache
