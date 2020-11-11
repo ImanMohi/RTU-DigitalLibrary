@@ -1,0 +1,18 @@
+//String Permutations
+
+void findper(string str, int l, int r) {
+    if(r==l)
+        cout<<str<<" ";
+    for(int i=l;i<=r;i++) {
+        swap(str[l],str[i]);
+        findper(str,l+1,r);
+        swap(str[l],str[i]);
+        }
+}
+
+int main() {
+    string str;
+    cin>>str;
+    int n = str.size();
+    findper(str,0,n-1);
+}
