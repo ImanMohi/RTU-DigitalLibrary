@@ -2,7 +2,8 @@
 #include<stdio.h>
 int main()
 {
-	int power, base, result = 1;
+	int power, base;
+	int result = 1;
 
 	printf("Enter the base: ");
 	scanf("%d",&base);
