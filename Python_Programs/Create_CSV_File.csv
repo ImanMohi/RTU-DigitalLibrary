@@ -1,0 +1,27 @@
+import csv
+def write():
+	fin=open('Rec.csv','a')
+	#write=csv.writer(fin, lineterminator='\n')
+	n=int(input('No of Records:'))
+	for k in range(n):
+		list=[int(input('Enter Code:')),
+		input('Enter Name:'),
+		float(input('Enter Basic Salary:'))]
+		#write.writerow(list)
+		csv.writer.writerow(list)
+		print()
+	fin.close()
+
+def read():
+	fout=open('Rec.csv')
+	data=csv.reader(fout)
+	print('_'*25)
+	print('Code','Name','Basic Salary',sep='\t')
+	print('_'*25)
+	for k in data:
+		print(int(k[0]),k[1],float(k[2]),sep='\t')
+	print('_'*25)
+	fout.close()
+
+#write()
+read()
