@@ -1,0 +1,49 @@
+#include<stdio.h>
+#include<stdbool.h>
+#include<string.h>
+#include<limits.h>
+#define INF INT_MAX
+#define V 6
+int G[V][V] = {
+ {0, 3, 1, 6, 0, 0},
+ {3, 0, 5, 0, 3, 0},
+ {1, 5, 0, 5, 6, 4},
+ {6, 0, 5, 0, 0, 2},
+ {0, 3, 6, 0, 0, 6},
+ {0, 0, 4, 2, 6, 0}};
+int main() {
+ int no;
+ int select[V];
+ memset(select, false, sizeof(select));
+ no = 0;
+ select[0] = true;
+ int x;
+ int y;
+ int sum = 0;
+ printf(":: Details Of MST ::\n");
+ printf("Edge : Weight\n");
+ while (no < V - 1) {
+ int min = INF;
+ x = 0;
+ y = 0;
+ for (int i = 0; i < V; i++) {
+ if (select[i]) {
+ for (int j = 0; j < V; j++) {
+ if (!select[j] && G[i][j]) {
+ if (min > G[i][j]) {
+ min = G[i][j];
+ x = i;
+ y = j;
+ }
+ }
+ }
+ }
+ }
+ printf("%d - %d : %d\n", x, y, G[x][y]);
+ sum+=G[x][y];
+ select[y] = true;
+ no++;
+ }
+ printf("Total Path Weight for MST : %d",sum);
+ return 0;
+}
