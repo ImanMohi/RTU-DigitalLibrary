@@ -41,7 +41,7 @@ int main()
     for (i = 0; i < n; i++) cin >> a[i];
     quick_sort(a, 0, n - 1);
     cout << "The sorted elements are:\n";
-    for (i = 0; i < n; i++)
+    for (i = 0; i < n; i++){
         cout << a[i] << endl;
-    ;
+    }
 }
