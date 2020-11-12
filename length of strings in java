@@ -1,0 +1,15 @@
+import java.io.*;
+public class Test {
+
+   public static void main()
+   {
+      String S1 = new String("this me writing this code");
+      String S2 = new String("lets dive into the code" );
+
+      System.out.print("String Length :" );
+      System.out.println(S1.length());
+
+      System.out.print("String Length :" );
+      System.out.println(S2.length());
+   }
+}
