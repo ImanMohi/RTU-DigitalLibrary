@@ -1,0 +1,224 @@
+#IF STATEMENTS
+'''a=12
+if a<=10:
+    print("hi")
+elif a==10:
+    print("hello")
+else:
+    print("good morning")'''
+
+#MAXIMUM 3 NUMBERS
+'''
+a=int(input("enter a"))
+b=int(input("enter b"))
+c=int(input("enter c"))
+if a>b and a>c:
+    print("max no. is a",a)
+elif b>c and b>a:
+    print("max no. is b",b)
+else :
+    print(c,"max no.")'''
+
+    
+#PALINDROME OF STRING
+'''
+a=input("enter the string:")
+l=list(a)
+y=l.reverse()
+if l==y:
+    print("string is palindrome")
+else:
+    print("not in palindrome")'''
+
+#PALINDROME
+'''
+a=input("enter the sring:")
+l=len(a)-1
+flag=1
+for i in range(0,(len(a)//2)):
+    if a[i]==a[1]:
+        l-=1
+    else:
+        flag=0
+        break
+if flag==0:
+    print("palindrome")
+else:
+    print("is a palindrome")'''
+
+#MAXIMUM NUMBER FROM 5 INPUTS
+'''
+a=int(input("enter a:"))
+b=int(input("enter b:"))
+c=int(input("enter c:"))
+d=int(input("enter d:"))
+e=int(input("enter e:"))
+if a>b:
+      if a>c :
+             if a>d:
+                   if a>e:
+                          print("max is a:",a)
+elif b>a and b>c and b>d and b>e:
+      print("max is b:",b)
+elif c>a and c>b and c>d and c>e:
+      print("max is c:",c)
+elif d>a and d>b and d>c and d>e:
+      print("max is d:",d)
+elif e>a and e>b and e>c and e>d:
+      print("max is e:",e)'''
+
+      
+#PRIME NUMBER
+'''
+a=int(input("enter the number to check:"))
+count=0
+for i in range(1,a):
+    if(a%i==0):
+        count=count+1
+if count==2:
+    print(" not a prime number")
+else:
+    print("prime number")'''
+
+#PRIME NUMBER
+'''
+a=int(input("enter the range : "))
+
+for i in range(2,a+1):
+    if i==2:
+        print(i)
+    if i%2==0:
+        continue
+    else:
+        l=[]
+        for j in range(2,i//2):
+            if i%j==0:
+                l.append(i)
+        if len(l)==0:
+            print(i)'''
+
+            
+#AEROPLANE
+'''
+print("Aeroplane Status")
+a=input("is the plane ready for take off")
+if a=='yes':
+   x=input("is the pilot available")
+   if x=='yes':
+        y=input("is the air-route free")
+        if y=='yes':
+            print("plane takes off")
+            z=input("is the run-way clear for landing")
+            if z=='yes':
+               print("plane landed successfully...congratulations...")
+            else:
+               print("plane has to stay in air untill runway is clear")
+        else:
+            print("planes doesn't takes off")
+   else:
+        print("pilot not available....sorry")
+else:
+    print("plane isnt ready for passengers yet,please wait")
+'''
+
+#PRINT ODD-EVEN
+
+#1.TERNARY FORM
+'''
+n=int(input("number"))
+print("even") if not n%2 else print("odd")
+
+
+n=input("enter the number:")
+if n[len(n)-1]==0 or 2 or 4 or 6 or 8:
+    print("even")
+else:
+    print("odd")'''
+
+#2.
+'''
+n=int(input("number:"))
+x=(n//2)*2
+if(x==n):
+    print("even")
+else:
+    print("odd")
+'''
+
+#3.
+'''n=int(input("enter no."))
+if(n&1==0):
+    print("even")
+else:
+    print("odd")'''
+
+#4.
+'''n=int(input("number"))
+if (n/2==n//2):
+    print("even")
+else:
+    print("odd")'''
+
+
+#5.
+'''
+n=int(input("enter number:"))
+print("even")if(n|1!=n) else print("odd")'''
+
+
+#6.
+'''
+n=int(input())
+print('even') if((n|1)==n+1) else print("odd")'''
+
+
+#7.
+'''n=int(input("num:"))
+print("even") if(n^1==n+1) else print("odd")'''
+
+
+#8.
+'''
+n=int(input("number:"))
+print("even") if((n//2)*2)==n else print("oddd")
+'''
+
+#10.
+'''
+n=int(input("num:"))
+print("even") if((n>>1)<<1)==n else print("odd")'''
+
+#11.
+'''
+n=int(input("num"))
+print("even") if((n//2)<<1)==n else print("odd")'''
+
+#12.
+'''
+n=int(input("num:"))
+print("even") if(n>>1)*2==n else print("odd")
+'''
+
+#13.without condition statement(USING LIST)
+'''
+n=int(input("enter number"))
+n=['even','odd']#value can be stored in any whether list,,tuple...
+print(n[a%2])
+'''
+
+#14.
+'''
+n=int(input("ENTER NUMBER:"))
+print("even") if(n|1!==n) elseprint("odd")'''
+
+#15.
+n=int(input("enter number:"))
+if(isEven(n)!=False):
+    print("even")
+else:
+    print("odd")
+
+
+
+    
+            

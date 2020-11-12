@@ -1,0 +1,205 @@
+Python 3.6.5 (v3.6.5:f59c0932b4, Mar 28 2018, 16:07:46) [MSC v.1900 32 bit (Intel)] on win32
+Type "copyright", "credits" or "license()" for more information.
+>>> 
+= RESTART: C:/Users/dell/AppData/Local/Programs/Python/Python36-32/5thlab.py =
+>>> add(10,20)
+30
+>>> num1=int(input("enter num1:"))
+enter num1:3
+>>> num2=int(input("enter num2:"))
+enter num2:4
+>>> add(num1,num2)
+7
+>>> num2=(input("enter num2:"))
+enter num2:5
+>>> add(num1+num2)
+Traceback (most recent call last):
+  File "<pyshell#5>", line 1, in <module>
+    add(num1+num2)
+TypeError: unsupported operand type(s) for +: 'int' and 'str'
+>>> 
+= RESTART: C:/Users/dell/AppData/Local/Programs/Python/Python36-32/5thlab.py =
+start
+enter number:2
+enter number:0
+valid number
+>>> 
+= RESTART: C:/Users/dell/AppData/Local/Programs/Python/Python36-32/5thlab.py =
+start
+enter number:8/4
+Traceback (most recent call last):
+  File "C:/Users/dell/AppData/Local/Programs/Python/Python36-32/5thlab.py", line 10, in <module>
+    a=int(input("enter number:"))
+ValueError: invalid literal for int() with base 10: '8/4'
+>>> 
+= RESTART: C:/Users/dell/AppData/Local/Programs/Python/Python36-32/5thlab.py =
+start
+enter number:
+= RESTART: C:/Users/dell/AppData/Local/Programs/Python/Python36-32/5thlab.py =
+start
+enter number:8
+enter number:4
+>>> 
+= RESTART: C:/Users/dell/AppData/Local/Programs/Python/Python36-32/5thlab.py =
+start
+enter number:
+Traceback (most recent call last):
+  File "C:/Users/dell/AppData/Local/Programs/Python/Python36-32/5thlab.py", line 11, in <module>
+    a=int(input("enter number:"))
+ValueError: invalid literal for int() with base 10: ''
+>>> 
+= RESTART: C:/Users/dell/AppData/Local/Programs/Python/Python36-32/5thlab.py =
+start
+enter number:4
+enter number:2
+2.0
+>>> 
+============= RESTART: C:/Users/dell/Desktop/exception-5thlab.py =============
+start
+division by zero
+>>> # PRINTING OF EXCEPTION
+>>> 
+>>> 
+============= RESTART: C:/Users/dell/Desktop/exception-5thlab.py =============
+start
+division by zero
+>>> 
+============= RESTART: C:/Users/dell/Desktop/exception-5thlab.py =============
+start
+list assignment index out of range
+end
+>>> 
+============= RESTART: C:/Users/dell/Desktop/exception-5thlab.py =============
+start
+end
+>>> 
+============= RESTART: C:/Users/dell/Desktop/exception-5thlab.py =============
+start
+1.25
+>>> 
+============= RESTART: C:/Users/dell/Desktop/exception-5thlab.py =============
+start
+Traceback (most recent call last):
+  File "C:/Users/dell/Desktop/exception-5thlab.py", line 51, in <module>
+    print(a/b)
+ZeroDivisionError: division by zero
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:/Users/dell/Desktop/exception-5thlab.py", line 57, in <module>
+    print(e)
+NameError: name 'e' is not defined
+>>> 
+============= RESTART: C:/Users/dell/Desktop/exception-5thlab.py =============
+start
+division by zero
+>>> 
+============= RESTART: C:/Users/dell/Desktop/exception-5thlab.py =============
+start
+num1:3
+num2:6
+list assignment index out of range
+end
+>>> 
+============= RESTART: C:/Users/dell/Desktop/exception-5thlab.py =============
+start
+num1:4
+num2:2
+list assignment index out of range
+end
+>>> 
+============= RESTART: C:/Users/dell/Desktop/exception-5thlab.py =============
+start
+num1:6
+num2:3
+2.0
+list assignment index out of range
+end
+>>> 
+============= RESTART: C:/Users/dell/Desktop/exception-5thlab.py =============
+start
+num1:2
+num2:0
+division by zero
+end
+>>> 
+============= RESTART: C:/Users/dell/Desktop/exception-5thlab.py =============
+done well
+20
+>>> 
+============= RESTART: C:/Users/dell/Desktop/exception-5thlab.py =============
+addition done
+>>> 
+============= RESTART: C:/Users/dell/Desktop/exception-5thlab.py =============
+ENTER VALID VALUE
+>>> 
+============= RESTART: C:/Users/dell/Desktop/exception-5thlab.py =============
+ENTER VALID VALUE
+ENTER VALID VALUE
+finally block
+>>> 
+============= RESTART: C:/Users/dell/Desktop/exception-5thlab.py =============
+ENTER VALID VALUE
+ENTER VALID VALUE
+finally block
+>>> 
+============= RESTART: C:/Users/dell/Desktop/exception-5thlab.py =============
+unsupported operand type(s) for +: 'int' and 'str'
+finally block!!
+>>> 
+============= RESTART: C:/Users/dell/Desktop/exception-5thlab.py =============
+enter the value:3
+end!1
+>>> 
+============= RESTART: C:/Users/dell/Desktop/exception-5thlab.py =============
+enter the value:9.0
+not an integer
+end!
+>>> 
+============= RESTART: C:/Users/dell/Desktop/exception-5thlab.py =============
+enter the value:error
+not an integer
+end!
+>>> 
+============= RESTART: C:/Users/dell/Desktop/exception-5thlab.py =============
+>>> ask_for_val(4)
+Traceback (most recent call last):
+  File "<pyshell#8>", line 1, in <module>
+    ask_for_val(4)
+TypeError: ask_for_val() takes 0 positional arguments but 1 was given
+>>> 
+============= RESTART: C:/Users/dell/Desktop/exception-5thlab.py =============
+enter the value:34
+end!
+>>> 
+============= RESTART: C:/Users/dell/Desktop/exception-5thlab.py =============
+enter the value:rto
+invalid literal for int() with base 10: 'rto'
+end!
+>>> 
+============= RESTART: C:/Users/dell/Desktop/exception-5thlab.py =============
+enter the value:yo
+invalid literal for int() with base 10: 'yo'
+end!
+>>> 
+============= RESTART: C:/Users/dell/Desktop/exception-5thlab.py =============
+enter the value:4
+it's an integer
+end!
+>>> 
+============= RESTART: C:/Users/dell/Desktop/exception-5thlab.py =============
+>>> 
+============= RESTART: C:/Users/dell/Desktop/exception-5thlab.py =============
+>>> 
+============= RESTART: C:/Users/dell/Desktop/exception-5thlab.py =============
+>>> 
+============= RESTART: C:/Users/dell/Desktop/exception-5thlab.py =============
+>>> 
+============= RESTART: C:/Users/dell/Desktop/exception-5thlab.py =============
+>>> inr(3)
+Traceback (most recent call last):
+  File "<pyshell#9>", line 1, in <module>
+    inr(3)
+TypeError: inr() takes 0 positional arguments but 1 was given
+>>> 
