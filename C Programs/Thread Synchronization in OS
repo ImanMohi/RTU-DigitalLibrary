@@ -1,0 +1,120 @@
+#include <pthread.h>
+#include <semaphore.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <unistd.h>
+
+#define BufferSize 5 // Size of the buffer
+
+sem_t empty;//number of empty slots
+
+sem_t full;//number of slots filled
+
+int in = 0;//used for producer,index at which producer will produce the next item
+
+int out = 0;//used for consumer,index from which consumer will consume the next item
+
+int buffer[BufferSize];//commom buffer shared by producer and consumer
+
+pthread_mutex_t mutex;//to provide mutual exclusion
+
+void Buffer()//for printing buffer
+{
+	printf("\n-------------------------------------------\n");
+	for(int i=0;i<BufferSize;i++)
+	{
+		printf("%d\t",buffer[i]);
+	}
+	printf("\n-------------------------------------------\n");
+	printf("\n");
+}
+
+void *producer(void *pno)//producer function
+{    
+    int item;
+    int *ptr=(int *)pno;//gives the producer status
+    int p=*ptr;//pointer to point producer number
+    while(1) 
+    {
+        sem_wait(&empty);//wait when there are no empty slots in the buffer
+
+        pthread_mutex_lock(&mutex);//same as wait() operation,mutex object referenced by mutex shall be locked by calling pthread_mutex_lock()
+     
+	item = rand()%130; // Produce an random item   
+	buffer[in] = item;//putting the item into the buffer
+
+        printf("Producer %d:Produce Item %d at %d\n", p,buffer[in],in);//printing the producer  data
+
+        in = (in+1)%BufferSize;//this increments the position of in by 1,to store the next item produced by producer
+	Buffer();
+        pthread_mutex_unlock(&mutex);//same as signal() operation, release the mutex object referenced by mutex.
+
+        sem_post(&full);//signal operation on semaphore
+    }
+}
+void *consumer(void *cno)
+{ 
+    int *ptr=(int *)cno;//gives the consumer status
+    int p=*ptr; //pointer to point consumer number 
+    while(1) 
+   {
+        sem_wait(&full);
+        pthread_mutex_lock(&mutex);
+        int item = buffer[out];//consumes item buffer
+        printf("\nConsumer %d: Consume Item %d from %d\n",p,item, out);//printing the consumer data.
+
+        out = (out+1)%BufferSize;//this decrements the position of out by 1,to consume the previous item produced by producer
+	Buffer();
+        pthread_mutex_unlock(&mutex);//same as signal() operation, release the mutex object referenced by mutex.
+
+        sem_post(&empty);//signal operation on semaphore
+   	sleep(2); 
+   }
+}
+
+int main()
+{   
+pthread_t *proT;//declaration of thread for producer
+pthread_t *conT;//declaration of thread for consumer
+int pro,con;
+
+printf("Enter the no. of producer:-");//taking producers from user
+scanf("%d",&pro);
+
+printf("Enter the no. of consumer:-");//taking consumers from user
+scanf("%d",&con);
+
+    pthread_mutex_init(&mutex, NULL);//This initializes mutex with the attributes specified i.e NULL
+
+    sem_init(&empty,0,BufferSize);//This initializes the semaphore empty.If pshared is 0, the semaphore is shared among all threads of a      	   process. If pshared is not zero, the semaphore is shared but should be in shared memory.
+
+    sem_init(&full,0,0);//This initializes the semaphore full.
+
+    proT=(pthread_t*)malloc(pro * sizeof(pthread_t));//dynamic memory allocation for producer thread 
+    conT=(pthread_t*)malloc(con * sizeof(pthread_t));//dynamic memory allocation for consumer thread
+
+    for(int i = 0; i < pro; i++) 
+    {
+        pthread_create(&proT[i], NULL, (void *)producer,(void*)&i);//creation of producer threads
+    }
+    for(int i = 0; i < con; i++) 
+    {
+        pthread_create(&conT[i], NULL, (void *)consumer,(void*)&i);//creation of consumer thread
+    }
+
+    for(int i = 0; i < pro; i++)
+    {
+        pthread_join(proT[i], NULL);//joining producer thread
+    }
+    for(int i = 0; i < con; i++) 
+    {
+        pthread_join(conT[i], NULL);//joining consumer thread
+    }
+	
+    pthread_mutex_destroy(&mutex);//This destroys the mutex object, so mutex becomes uninitialized.
+    sem_destroy(&empty);//This destroys the semaphore empty, so empty becomes uninitialized.
+    sem_destroy(&full);//This destroys the semaphore full, so full becomes uninitialized.
+
+    return 0;
+    
+}
