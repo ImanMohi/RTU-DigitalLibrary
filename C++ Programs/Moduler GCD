@@ -1,0 +1,53 @@
+#include <bits/stdc++.h>
+#include <boost/multiprecision/cpp_int.hpp>
+
+using namespace boost::multiprecision;
+#define ll int128_t
+#define mod 1000000007
+using namespace std;
+/*ll modInverse(ll a, ll m)
+{
+     return power(a, m-2, m);
+    }
+}*/
+ 
+
+ll power(ll x, ll y, ll m)
+{
+    if (y == 0)
+        return 1;
+    ll p = power(x, y/2, m) % m;
+    p = (p * p) % m;
+ 
+    return (y%2 == 0)? p : (x * p) % m;
+}
+ 
+
+ll gcd(ll a, ll b)
+{
+    if (a == 0)
+        return b;
+    return gcd(b%a, a);
+}
+ 
+
+int main() {
+	ll t;
+	cin>>t;
+	while(t--)
+	{
+	    ll a,b,n,a1,b1;
+	    cin>>a>>b>>n;
+	    if(a==b)
+	    {
+	        cout<<(power(a,n,mod)+power(b,n,mod))%mod<<endl;
+	        continue;
+	    }
+	    a1=(power(a,n,abs(a-b))+power(b,n,abs(a-b)))%abs(a-b);
+	    b1=abs(a-b);
+	    
+	        cout<<gcd(a1,b1)%mod<<endl;
+	   // cout<<(power(a,n,mod))<<endl;
+	}
+	return 0;
+}
