@@ -1,0 +1,43 @@
+// C program to perform transpose sequential search
+#include<stdio.h>
+int main()
+{
+	int a[10],n,i,t,element;
+	printf("enter the no. of values to be inserted");
+	scanf("%d",&n);
+	for(i=0;i<n;i++)
+	{
+		printf("enter the value");
+		scanf("%d",&a[i]);
+	}
+	printf("enter the element to be searched");
+	scanf("%d",&element);
+	for(i=0;i<n;i++)
+	{
+		if(a[i]==element)
+		{
+			printf("yes");
+			t=a[i];
+			a[i]=a[i-1];
+			a[i-1]=t;
+			break;
+		}
+	}
+	if(i==n)
+	printf("no");
+	else
+	{
+		for(i=0;i<n;i++)
+		printf("%d",a[i]);
+	}
+}
+
+
+//example o/p:
+//enter the no. of values to be inserted4
+//enter the value1
+//enter the value2
+//enter the value3
+//enter the value4
+//enter the element to be searched5
+//no
