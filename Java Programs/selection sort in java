@@ -1,0 +1,39 @@
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+	public static void selectionSort(int[] arr){  
+        for (int i = 0; i < arr.length - 1; i++)  
+        {  
+            int index = i;  
+            for (int j = i + 1; j < arr.length; j++){  
+                if (arr[j] < arr[index]){  
+                    index = j; 
+                }  
+            }  
+            int smallerNumber = arr[index];   
+            arr[index] = arr[i];  
+            arr[i] = smallerNumber;  
+        }  
+    }  
+
+	public static void main (String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int T = sc.nextInt();
+		for(int i=0; i<T; i++){
+			int N=sc.nextInt();
+			int[] a = new int[N];
+			for(int j=0; j<N; j++){
+				a[j] = sc.nextInt();
+			}
+			selectionSort(a);
+			for(int all:a){  
+            System.out.print(all+" ");
+		}
+		System.out.println();
+                      // Your code here
+	}
+}
+}
