@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+#define ll long long
+using namespace std;
+ 
+int main() 
+{
+    ll t;
+    cin>>t;
+    while(t--)
+    {
+        ll a,ans=0;
+        cin>>a;
+        while(a!=0)
+        {
+            ans+=a%10;
+            a=a/10;
+        }
+        cout<<ans<<endl;
+    }
+    return 0;
+}
