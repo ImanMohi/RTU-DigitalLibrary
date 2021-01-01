@@ -1,0 +1,59 @@
+import random
+def for1 ():
+    print("[-----------]")
+    print("[           ]")
+    print("[     0     ]")
+    print("[           ]")
+    print("[-----------]")
+    return "For again press Enter"
+def for2 ():
+    print("[-----------]")
+    print("[           ]")
+    print("[   0   0   ]")
+    print("[           ]")
+    print("[-----------]")
+    return "For again press Enter"
+def for3 ():
+    print("[-----------]")
+    print("[     0     ]")
+    print("[     0     ]")
+    print("[     0     ]")
+    print("[-----------]")
+    return "For again press Enter"
+def for4 ():
+    print("[-----------]")
+    print("[   0   0   ]")
+    print("[           ]")
+    print("[   0   0   ]")
+    print("[-----------]")
+    return "For again press Enter"
+def for5 ():
+    print("[-----------]")
+    print("[   0   0   ]")
+    print("[     0     ]")
+    print("[   0   0   ]")
+    print("[-----------]")
+    return "For again press Enter"
+def for6 ():
+    print("[-----------]")
+    print("[   0   0   ]")
+    print("[   0   0   ]")
+    print("[   0   0   ]")
+    print("[-----------]")
+    return "For again press Enter"
+inp=""
+while inp =="":
+    random_no=random.randint(1,6)
+    if random_no==1:
+        print(for1(1))
+    elif random_no==2:
+        print(for2(2))
+    elif random_no==3:
+        print(for3(2))
+    elif random_no==4:
+        print(for4(2))
+    elif random_no==5:
+        print(for5(2))
+    elif random_no==6:
+        print(for6(2))
+    inp=input()
