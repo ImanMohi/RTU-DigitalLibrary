@@ -1,0 +1,34 @@
+//C program to perform linear search
+
+#include<stdio.h>
+int main()
+{
+	int i=0,a[10],element,n,flag=1;
+printf("enter the no. of values to be inerted");
+scanf("%d",&n);
+for(i=0;i<n;i++)
+{
+	printf("enter the value\n");
+}
+scanf("%d",&a[i]);
+printf("enter the element to be searched");
+scanf("%d",&element);
+for(i=0;i<n;i++)
+{
+	if(element==a[i])
+	{
+		flag=0;
+		break;
+	}
+}
+(flag)?printf("no"):printf("yes");
+}
+
+//example o/p:
+//enter the no. of values to be inerted3
+//enter the value
+//enter the value
+//enter the value
+//123
+//enter the element to be searched4
+//no
